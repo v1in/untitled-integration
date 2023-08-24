@@ -1,0 +1,17 @@
+{
+  "name": "untitled-integration",
+  "description": "Next Astro template and easy integration with Notion API",
+  "type": "module",
+  "version": "0.0.1",
+  "author": "vladimir vo @v1in",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.10.14"
+  }
+}

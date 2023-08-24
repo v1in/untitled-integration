@@ -1,0 +1,67 @@
+---
+const year = new Date().getFullYear();
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Astro | Notion API integration</title>
+  </head>
+  <body>
+    <main class='full'>
+      <h1>untitled integration.</h1>
+      <p>
+        Next <a href='https://astro.build/'>Astro</a> template and easy integration
+        with <a href='https://developers.notion.com/'>Notion API</a>
+      </p>
+      <hr />
+      <slot />
+    </main>
+    <footer class='full'>
+      &copy; {year} VA.
+    </footer>
+
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+        background-color: #212121;
+      }
+      body {
+        --padding: 1em;
+        margin: 0;
+        font-family: "Lucida console", Courier, monospace;
+        line-height: 1.25;
+        background-color: #fafafa;
+        padding: var(--padding);
+        min-height: calc(100vh - (var(--padding) * 2));
+        display: grid;
+        /* justify-content: center; */
+        grid-template-rows: 1fr auto;
+      }
+      footer {
+        font-size: 0.8em;
+      }
+      a {
+        color: inherit;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #d3d3d3;
+        margin: 2em 0;
+      }
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+      .full {
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    </style>
+  </body>
+</html>
