@@ -1,33 +1,29 @@
-# Astro Starter Kit: Minimal
+# untitled-integration
+
+- [Notion API](#notion-api)
+- [Zotero API](#zotero-api)
+
+## 📃 Notion API
+
+Required variables for integration
 
 ```
-npm create astro@latest -- --template minimal
+NOTION_API_KEY=
+DATABASE_ID=
 ```
+Where can I find my database's ID? Check it out here https://developers.notion.com/docs/working-with-databases
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+example:
 
 ```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+https://www.notion.so/{workspace_name}/{database_id}?v={view_id}
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📃 Zotero API
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Documentation https://www.zotero.org/support/dev/start
 
-Any static assets, like images, can be placed in the `public/` directory.
+- [ ] TODO
 
 ## 🧞 Commands
 

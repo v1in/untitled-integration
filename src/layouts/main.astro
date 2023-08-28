@@ -12,7 +12,7 @@ const year = new Date().getFullYear();
   </head>
   <body>
     <main class='full'>
-      <h1>untitled integration.</h1>
+      <h1><mark>untitled</mark> integration.</h1>
       <p>
         Next <a href='https://astro.build/'>Astro</a> template and easy integration
         with <a href='https://developers.notion.com/'>Notion API</a>
@@ -38,7 +38,6 @@ const year = new Date().getFullYear();
         padding: var(--padding);
         min-height: calc(100vh - (var(--padding) * 2));
         display: grid;
-        /* justify-content: center; */
         grid-template-rows: 1fr auto;
       }
       footer {
@@ -57,6 +56,26 @@ const year = new Date().getFullYear();
       img {
         content-visibility: auto;
       }
+      pre {
+        background-color: #212121;
+        color: #169a9a;
+      }
+      ::selection {
+        background-color: #212121;
+        color: #169a9a;
+      }
+
+      pre::selection {
+        background-color: #504f4f;
+        color: #a09e9e;
+      }
+
+      mark {
+        display: inline-block;
+        background-color: #212121;
+        color: #169a9a;
+      }
+
       .full {
         max-width: 1000px;
         width: 100%;
