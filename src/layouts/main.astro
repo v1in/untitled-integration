@@ -12,15 +12,15 @@ const year = new Date().getFullYear();
   </head>
   <body>
     <main class='full'>
-      <h1><mark>untitled</mark> integration.</h1>
-      <p>
+      <h1 class='text-3xl'><mark>untitled</mark> integration.</h1>
+      <h2 class='text-xl mt-2'>
         Next <a href='https://astro.build/'>Astro</a> template and easy integration
         with <a href='https://developers.notion.com/'>Notion API</a>
-      </p>
+      </h2>
       <hr />
       <slot />
     </main>
-    <footer class='full'>
+    <footer class='full mt-10'>
       &copy; {year} VA.
     </footer>
 
@@ -30,13 +30,12 @@ const year = new Date().getFullYear();
         background-color: #212121;
       }
       body {
-        --padding: 1em;
         margin: 0;
         font-family: "Lucida console", Courier, monospace;
         line-height: 1.25;
         background-color: #fafafa;
-        padding: var(--padding);
-        min-height: calc(100vh - (var(--padding) * 2));
+        padding: 1em;
+        min-height: 100vh;
         display: grid;
         grid-template-rows: 1fr auto;
       }
@@ -57,6 +56,8 @@ const year = new Date().getFullYear();
         content-visibility: auto;
       }
       pre {
+        padding: 1em;
+        white-space: pre-wrap;
         background-color: #212121;
         color: #169a9a;
       }
