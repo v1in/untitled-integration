@@ -5,7 +5,7 @@ import { Client } from "@notionhq/client";
 type ResultType = Array<
   Pick<
     DatabaseObjectResponse,
-    "properties" | "cover" | "created_time" | "last_edited_time"
+    "properties" | "cover" | "created_time" | "last_edited_time" | "id"
   >
 >;
 
@@ -19,6 +19,7 @@ export const getNotionItems = async (options: ClientOptions) => {
   const data = response.results as ResultType;
 
   return data.map((page) => ({
+    id: page.id,
     created_time: page.created_time,
     last_edited_time: page.last_edited_time,
     cover: page.cover?.type === "external" && page.cover.external.url,

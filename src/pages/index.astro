@@ -1,4 +1,5 @@
 ---
+import PromoItem from "../components/PromoItem.astro";
 import Main from "../layouts/main.astro";
 import { getNotionItems } from "../utils";
 
@@ -7,12 +8,6 @@ const promoItems = await getNotionItems({
 });
 
 const rawData = JSON.stringify(promoItems, null, 2);
-
-const styles = {
-  default:
-    "before:bg-gray-100 before:text-gray-800 before:text-xs before:block before:rounded before:border before:px-1 before:border-gray-500 before:font-normal before:max-w-max before:font-normal",
-  absolute: "before:absolute before:top-4 before:left-4 before:z-[1] relative",
-};
 ---
 
 <Main>
@@ -26,63 +21,6 @@ const styles = {
   </details>
 
   <div class='columns-xs gap-10'>
-    {
-      promoItems.map(
-        ({ cover, created_time, last_edited_time, properties }) => (
-          <div class='mb-10 bg-white border border-gray-200 rounded-lg shadow break-inside-avoid'>
-            {cover && (
-              <div
-                class:list={[
-                  styles["default"],
-                  styles["absolute"],
-                  "before:content-['cover'] max-h-80 overflow-hidden",
-                ]}>
-                <img class='rounded-t-lg' src={cover} alt={properties.title} />
-              </div>
-            )}
-            <div class='p-5'>
-              <h5
-                class:list={[
-                  styles["default"],
-                  "before:content-['title'] mb-2 text-2xl font-bold tracking-tight text-gray-900",
-                ]}>
-                {properties.title}
-              </h5>
-              <p
-                class:list={[
-                  styles["default"],
-                  "before:content-['subtitle'] mb-3 font-normal text-gray-700",
-                ]}>
-                {properties.subtitle}
-              </p>
-              <p
-                class:list={[
-                  styles["default"],
-                  "before:content-['percent'] text-3xl",
-                ]}>
-                {properties.percent * 100}%
-              </p>
-              <details class='mt-4 cursor-pointer'>
-                <summary>open details</summary>
-                <p
-                  class:list={[
-                    styles["default"],
-                    "before:content-['description'] whitespace-pre-line py-4",
-                  ]}>
-                  {properties.description}
-                </p>
-                <p
-                  class:list={[
-                    styles["default"],
-                    "before:content-['smallText'] whitespace-pre-line py-4 text-sm",
-                  ]}>
-                  {properties.smallText}
-                </p>
-              </details>
-            </div>
-          </div>
-        )
-      )
-    }
+    {promoItems.map((promo) => <PromoItem promo={promo} />)}
   </div>
 </Main>

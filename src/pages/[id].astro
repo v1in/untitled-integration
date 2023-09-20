@@ -1,0 +1,47 @@
+---
+import PromoItem from "../components/PromoItem.astro";
+import Main from "../layouts/main.astro";
+import { getNotionItems } from "../utils";
+
+export async function getStaticPaths() {
+  const promoItems = await getNotionItems({
+    auth: import.meta.env.NOTION_API_KEY,
+  });
+
+  return promoItems.map((promo) => {
+    return {
+      params: { id: promo.id },
+      props: { promo },
+    };
+  });
+}
+const { id } = Astro.params;
+const { promo } = Astro.props;
+---
+
+<Main indexPage={false}>
+  <a
+    href='/'
+    class='mt-8 inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-center text-white bg-zinc-700 rounded-lg hover:bg-zinc-800 focus:ring-4 focus:outline-none focus:ring-zinc-300'>
+    <svg
+      class='w-3 h-3'
+      aria-hidden='true'
+      xmlns='http://www.w3.org/2000/svg'
+      fill='none'
+      viewBox='0 0 6 10'>
+      <path
+        stroke='currentColor'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        stroke-width='2'
+        d='M5 1 1 5l4 4'></path>
+    </svg>
+     Back
+  </a>
+
+  <b class='block mt-4'>{id}</b>
+
+  <hr class='my-4' />
+
+  <PromoItem promo={promo} />
+</Main>

@@ -1,4 +1,11 @@
 ---
+interface Props {
+  indexPage?: boolean;
+}
+
+const {indexPage = true} = Astro.props;
+
+import { ViewTransitions } from "astro:transitions";
 const year = new Date().getFullYear();
 ---
 
@@ -9,15 +16,18 @@ const year = new Date().getFullYear();
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <title>Astro | Notion API integration</title>
+    <ViewTransitions />
   </head>
   <body>
     <main class='full'>
-      <h1 class='text-3xl'><mark>untitled</mark> integration.</h1>
-      <h2 class='text-xl mt-2'>
-        Next <a href='https://astro.build/'>Astro</a> template and easy integration
-        with <a href='https://developers.notion.com/'>Notion API</a>
+      {indexPage && (
+        <h1 class='text-3xl'><mark>untitled</mark> integration.</h1>
+        <h2 class='text-xl mt-2'>
+          Next <a href='https://astro.build/'>Astro</a> template and easy
+        integration with <a href='https://developers.notion.com/'>Notion API</a>
       </h2>
       <hr />
+      )}
       <slot />
     </main>
     <footer class='full mt-10'>
